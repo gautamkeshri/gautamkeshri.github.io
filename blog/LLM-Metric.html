@@ -1,35 +1,290 @@
-Here is the table generated using the provided data:
-
-| **Benchmark (Metric)**           | **DeepSeek V3** | **DeepSeek V2.5** | **Qwen2.5** | **Llama3.1** | **Claude-3.5** | **GPT-4o** |
-|----------------------------------|-----------------|-------------------|-------------|--------------|----------------|------------|
-| **Architecture**                 | MoE             | MoE               | Dense       | Dense        | -              | -          |
-| **# Activated Params**           | 37B             | 21B               | 72B         | 405B         | -              | -          |
-| **# Total Params**               | 671B            | 236B              | 72B         | 405B         | -              | -          |
-| **English**                      |                 |                   |             |              |                |            |
-| MMLU (EM)                        | 88.5            | 80.6              | 85.3        | 88.6         | 88.3           | 87.2       |
-| MMLU-Redux (EM)                  | 89.1            | 80.3              | 85.6        | 86.2         | 88.9           | 88.0       |
-| MMLU-Pro (EM)                    | 75.9            | 66.2              | 71.6        | 73.3         | 78.0           | 72.6       |
-| DROP (3-shot F1)                 | 91.6            | 87.8              | 76.7        | 88.7         | 88.3           | 83.7       |
-| IF-Eval (Prompt Strict)          | 86.1            | 80.6              | 84.1        | 86.0         | 86.5           | 84.3       |
-| GPQA-Diamond (Pass@1)            | 59.1            | 41.3              | 49.0        | 51.1         | 65.0           | 49.9       |
-| SimpleQA (Correct)               | 24.9            | 10.2              | 9.1         | 17.1         | 28.4           | 38.2       |
-| FRAMES (Acc.)                    | 73.3            | 65.4              | 69.8        | 70.0         | 72.5           | 80.5       |
-| LongBench v2 (Acc.)              | 48.7            | 35.4              | 39.4        | 36.1         | 41.0           | 48.1       |
-| **Code**                         |                 |                   |             |              |                |            |
-| HumanEval-Mul (Pass@1)           | 82.6            | 77.4              | 77.3        | 77.2         | 81.7           | 80.5       |
-| LiveCodeBench (Pass@1-COT)       | 40.5            | 29.2              | 31.1        | 28.4         | 36.3           | 33.4       |
-| LiveCodeBench (Pass@1)           | 37.6            | 28.4              | 28.7        | 30.1         | 32.8           | 34.2       |
-| Codeforces (Percentile)          | 51.6            | 35.6              | 24.8        | 25.3         | 20.3           | 23.6       |
-| SWE Verified (Resolved)          | 42.0            | 22.6              | 23.8        | 24.5         | 50.8           | 38.8       |
-| Aider-Edit (Acc.)                | 79.7            | 71.6              | 65.4        | 63.9         | 84.2           | 72.9       |
-| Aider-Polyglot (Acc.)            | 49.6            | 18.2              | 7.6         | 5.8          | 45.3           | 16.0       |
-| **Math**                         |                 |                   |             |              |                |            |
-| AIME 2024 (Pass@1)               | 39.2            | 16.7              | 23.3        | 23.3         | 16.0           | 9.3        |
-| MATH-500 (EM)                    | 90.2            | 74.7              | 80.0        | 73.8         | 78.3           | 74.6       |
-| CNMO 2024 (Pass@1)               | 43.2            | 10.8              | 15.9        | 6.8          | 13.1           | 10.8       |
-| **Chinese**                      |                 |                   |             |              |                |            |
-| CLUEWSC (EM)                     | 90.9            | 90.4              | 91.4        | 84.7         | 85.4           | 87.9       |
-| C-Eval (EM)                      | 86.5            | 79.5              | 86.1        | 61.5         | 76.7           | 76.0       |
-| C-SimpleQA (Correct)             | 64.1            | 54.1              | 48.4        | 50.4         | 51.3           | 59.3       |
-
-This table organizes the data into a structured format for easy comparison across models and benchmarks.
+<table>
+    <tr>
+        <td>**Benchmark (Metric)**</td>
+        <td>**DeepSeek V3**</td>
+        <td>**DeepSeek V2.5**</td>
+        <td>**Qwen2.5**</td>
+        <td>**Llama3.1**</td>
+        <td>**Claude-3.5**</td>
+        <td>**GPT-4o**</td>
+    </tr>
+    <tr>
+        <td>----------------------------------</td>
+        <td>-----------------</td>
+        <td>-------------------</td>
+        <td>-------------</td>
+        <td>--------------</td>
+        <td>----------------</td>
+        <td>------------</td>
+    </tr>
+    <tr>
+        <td>**Architecture**</td>
+        <td>MoE</td>
+        <td>MoE</td>
+        <td>Dense</td>
+        <td>Dense</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>**# Activated Params**</td>
+        <td>37B</td>
+        <td>21B</td>
+        <td>72B</td>
+        <td>405B</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>**# Total Params**</td>
+        <td>671B</td>
+        <td>236B</td>
+        <td>72B</td>
+        <td>405B</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>**English**</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>MMLU (EM)</td>
+        <td>88.5</td>
+        <td>80.6</td>
+        <td>85.3</td>
+        <td>88.6</td>
+        <td>88.3</td>
+        <td>87.2</td>
+    </tr>
+    <tr>
+        <td>MMLU-Redux (EM)</td>
+        <td>89.1</td>
+        <td>80.3</td>
+        <td>85.6</td>
+        <td>86.2</td>
+        <td>88.9</td>
+        <td>88.0</td>
+    </tr>
+    <tr>
+        <td>MMLU-Pro (EM)</td>
+        <td>75.9</td>
+        <td>66.2</td>
+        <td>71.6</td>
+        <td>73.3</td>
+        <td>78.0</td>
+        <td>72.6</td>
+    </tr>
+    <tr>
+        <td>DROP (3-shot F1)</td>
+        <td>91.6</td>
+        <td>87.8</td>
+        <td>76.7</td>
+        <td>88.7</td>
+        <td>88.3</td>
+        <td>83.7</td>
+    </tr>
+    <tr>
+        <td>IF-Eval (Prompt Strict)</td>
+        <td>86.1</td>
+        <td>80.6</td>
+        <td>84.1</td>
+        <td>86.0</td>
+        <td>86.5</td>
+        <td>84.3</td>
+    </tr>
+    <tr>
+        <td>GPQA-Diamond (Pass@1)</td>
+        <td>59.1</td>
+        <td>41.3</td>
+        <td>49.0</td>
+        <td>51.1</td>
+        <td>65.0</td>
+        <td>49.9</td>
+    </tr>
+    <tr>
+        <td>SimpleQA (Correct)</td>
+        <td>24.9</td>
+        <td>10.2</td>
+        <td>9.1</td>
+        <td>17.1</td>
+        <td>28.4</td>
+        <td>38.2</td>
+    </tr>
+    <tr>
+        <td>FRAMES (Acc.)</td>
+        <td>73.3</td>
+        <td>65.4</td>
+        <td>69.8</td>
+        <td>70.0</td>
+        <td>72.5</td>
+        <td>80.5</td>
+    </tr>
+    <tr>
+        <td>LongBench v2 (Acc.)</td>
+        <td>48.7</td>
+        <td>35.4</td>
+        <td>39.4</td>
+        <td>36.1</td>
+        <td>41.0</td>
+        <td>48.1</td>
+    </tr>
+    <tr>
+        <td>**Code**</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>HumanEval-Mul (Pass@1)</td>
+        <td>82.6</td>
+        <td>77.4</td>
+        <td>77.3</td>
+        <td>77.2</td>
+        <td>81.7</td>
+        <td>80.5</td>
+    </tr>
+    <tr>
+        <td>LiveCodeBench (Pass@1-COT)</td>
+        <td>40.5</td>
+        <td>29.2</td>
+        <td>31.1</td>
+        <td>28.4</td>
+        <td>36.3</td>
+        <td>33.4</td>
+    </tr>
+    <tr>
+        <td>LiveCodeBench (Pass@1)</td>
+        <td>37.6</td>
+        <td>28.4</td>
+        <td>28.7</td>
+        <td>30.1</td>
+        <td>32.8</td>
+        <td>34.2</td>
+    </tr>
+    <tr>
+        <td>Codeforces (Percentile)</td>
+        <td>51.6</td>
+        <td>35.6</td>
+        <td>24.8</td>
+        <td>25.3</td>
+        <td>20.3</td>
+        <td>23.6</td>
+    </tr>
+    <tr>
+        <td>SWE Verified (Resolved)</td>
+        <td>42.0</td>
+        <td>22.6</td>
+        <td>23.8</td>
+        <td>24.5</td>
+        <td>50.8</td>
+        <td>38.8</td>
+    </tr>
+    <tr>
+        <td>Aider-Edit (Acc.)</td>
+        <td>79.7</td>
+        <td>71.6</td>
+        <td>65.4</td>
+        <td>63.9</td>
+        <td>84.2</td>
+        <td>72.9</td>
+    </tr>
+    <tr>
+        <td>Aider-Polyglot (Acc.)</td>
+        <td>49.6</td>
+        <td>18.2</td>
+        <td>7.6</td>
+        <td>5.8</td>
+        <td>45.3</td>
+        <td>16.0</td>
+    </tr>
+    <tr>
+        <td>**Math**</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>AIME 2024 (Pass@1)</td>
+        <td>39.2</td>
+        <td>16.7</td>
+        <td>23.3</td>
+        <td>23.3</td>
+        <td>16.0</td>
+        <td>9.3</td>
+    </tr>
+    <tr>
+        <td>MATH-500 (EM)</td>
+        <td>90.2</td>
+        <td>74.7</td>
+        <td>80.0</td>
+        <td>73.8</td>
+        <td>78.3</td>
+        <td>74.6</td>
+    </tr>
+    <tr>
+        <td>CNMO 2024 (Pass@1)</td>
+        <td>43.2</td>
+        <td>10.8</td>
+        <td>15.9</td>
+        <td>6.8</td>
+        <td>13.1</td>
+        <td>10.8</td>
+    </tr>
+    <tr>
+        <td>**Chinese**</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>CLUEWSC (EM)</td>
+        <td>90.9</td>
+        <td>90.4</td>
+        <td>91.4</td>
+        <td>84.7</td>
+        <td>85.4</td>
+        <td>87.9</td>
+    </tr>
+    <tr>
+        <td>C-Eval (EM)</td>
+        <td>86.5</td>
+        <td>79.5</td>
+        <td>86.1</td>
+        <td>61.5</td>
+        <td>76.7</td>
+        <td>76.0</td>
+    </tr>
+    <tr>
+        <td>C-SimpleQA (Correct)</td>
+        <td>64.1</td>
+        <td>54.1</td>
+        <td>48.4</td>
+        <td>50.4</td>
+        <td>51.3</td>
+        <td>59.3</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>

@@ -5,4 +5,4 @@ run = "npm start"
 channel = "stable-25_05"
 
 [deployment]
-run = ["sh", "-c", "npm start"]
+run = ["sh", "-c", "python -m http.server 5000"]
